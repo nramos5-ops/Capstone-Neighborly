@@ -75,7 +75,7 @@ a:visited {
     padding-bottom: 10px;
     margin: 20px 10px 10px 10px;
     text-align: center;
-    width: 30%;
+    width: 33%;
 }
 
 input[type="email"] {
@@ -150,6 +150,7 @@ input[type="button"]:hover {
 }
 
 #pageContent {
+    width: 100%;
     flex: auto;
     overflow: auto;
 }

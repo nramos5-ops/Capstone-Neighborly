@@ -3,18 +3,11 @@
 }
 
 #indexCol_1, #indexCol_2, #indexCol_3 {
-    width: 32%;
     font-weight: bold;
-    margin: 20px;
-}
-
-#indexCol_1 {
+    margin-top: 20px;
+    text-align: center;
+    width: 33.3%;
     float: left;
-}
-
-#indexCol_3 {
-    float: right;
-    margin-right: 30px;
 }
 
 #indexAccordion {
