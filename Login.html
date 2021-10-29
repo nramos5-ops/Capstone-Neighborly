@@ -11,67 +11,21 @@
     <img src="Images/Logo.png" alt="Neighborly">
 </div>
 <ul id="navbar">
-    <li class="navItem"><a href="index.html" id="nav_home">Home</a></li>
-    <li class="navItem"><a href="" id="nav_home">Rental</a></li>
-    <li class="navItem"><a href="Login.html" id="nav_home">Login</a></li>
+    <li class="navItem"><a href="" id="nav_home">Home</a></li>
+    <li class="navItem"><a href="" id="nav_rental">Rental</a></li>
+    <li class="navItem"><a href="" id="nav_login">Login</a></li>
 </ul>
 <!-- Content -->
 <div id="pageContent">
-    <div>
-        <div id="indexCol_1">
-            
-        </div>
-        <div id="indexCol_2">
-            <h1>Login Here</h1>
-
-            <form action="" method="post">
-                <table>
-                    <tr>
-                        <td>Username:</td>
-                        <td>
-                            <input type="text" name="user">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Password:</td>
-                        <td>
-                            <input type="password" name="password">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <input type="submit" name="submit" value="Login">
-                        </td>
-
-                        <td>
-                            <a href="Register.html">Register</a>
-                        </td>
-                    </tr>
-                </table>
-
-
-            </form>
-            
-
-        </div>
-        <div id="indexCol_3">
-            <!-- <div id="indexAccordion">
-                <h3>header 1</h3>
-                <div>
-                    <p>
-                        content 1
-                    </p>
-                </div>
-                <h3>header 2</h3>
-                <div>
-                    <p>
-                        content 2
-                    </p>
-                </div>
-            </div> -->
-        </div>
+    <div id="loginContent">
+        <h1>Login</h1>
+        <div id="loginErrMsg"></div>
+        <p><label for="txtUser">Username</label><br>
+            <input type="text" placeholder="Username" id="txtUser"/></p>
+        <p><label for="txtPass">Password</label><br>
+            <input type="password" placeholder="Password" id="txtPass"/></p>
+        <p><input type="button" value="Login" id="btnLogin"/></p>
+        <p><input type="button" value="Register" id="btnRegister"/></p>
     </div>
 </div>
 
@@ -99,9 +53,11 @@
 
 <link href="css/watch.css" rel="stylesheet" />
 <link href="css/index.css" rel="stylesheet" />
+<link href="css/login.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/index.js"></script>
+<script src="js/login.js"></script>
 
 <!-- jQuery Modal Plugin -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
