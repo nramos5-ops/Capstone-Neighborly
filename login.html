@@ -13,19 +13,18 @@
 <ul id="navbar">
     <li class="navItem"><a href="index.html" id="nav_home">Home</a></li>
     <li class="navItem"><a href="rental.html" id="nav_rental">Rental</a></li>
-    <li class="navItem"><a href="Login.html" id="nav_login">Login</a></li>
+    <li class="navItem"><a href="login.html" id="nav_login">Login</a></li>
 </ul>
 <!-- Content -->
 <div id="pageContent">
-    <div id="registerContent">
-        <h1>Register Now</h1>
-        <div id="registerErrMsg"></div>
+    <div id="loginContent">
+        <h1>Login</h1>
+        <div id="loginErrMsg"></div>
         <p><label for="txtUser">Username</label><br>
             <input type="text" placeholder="Username" id="txtUser"/></p>
         <p><label for="txtPass">Password</label><br>
             <input type="password" placeholder="Password" id="txtPass"/></p>
-        <p><label for="txtEmail">E-mail</label><br>
-            <input type="email" placeholder="E-mail" id="txtEmail"/></p>
+        <p><input type="button" value="Login" id="btnLogin"/></p>
         <p><input type="button" value="Register" id="btnRegister"/></p>
     </div>
 </div>
@@ -54,11 +53,11 @@
 
 <link href="css/watch.css" rel="stylesheet" />
 <link href="css/index.css" rel="stylesheet" />
-<link href="css/register.css" rel="stylesheet" />
+<link href="css/login.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/index.js"></script>
-<script src="js/register.js"></script>
+<script src="js/login.js"></script>
 
 <!-- jQuery Modal Plugin -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
