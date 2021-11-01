@@ -17,20 +17,30 @@ a:visited {
     color: white;
 }
 
-#navbar {
+#navbar_btnGrp {
+    float: right;
+    margin-right: 30px;
+}
+
+#navbar_btn {
     list-style-type: none;
+}
+
+#navbar {
     background-color: #111A22;
-    margin: 0;
-    padding: 0;
     width: 100%;
-    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     border-bottom: #000000 4px solid;
 }
 
-#logo {
-    background-color: #111A22;
-    width: 100%;
-    
+#navbar_logo {
+    object-fit: none;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
 }
 
 .navItem {
