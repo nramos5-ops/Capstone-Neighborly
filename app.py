@@ -29,10 +29,12 @@ def rental():
 def css_static(pn):
     return send_from_directory('templates/css/', pn)
 
+
 # javascript
 @app.route('/js/<path:pn>')
 def js_static(pn):
     return send_from_directory('templates/js/', pn)
+
 
 # images
 @app.route('/images/<path:pn>')
