@@ -1,0 +1,167 @@
+body {
+    background-color: #15202b;
+    color: white;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+a {
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+#navbar_btnGrp {
+    float: right;
+    margin-right: 30px;
+}
+
+#navbar_btn {
+    list-style-type: none;
+}
+
+#navbar {
+    background-color: #111A22;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: #000000 4px solid;
+}
+
+#navbar_logo {
+    object-fit: none;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.navItem {
+    float: left;
+}
+
+.navItem a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    margin: 5px 8px 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #1da1f2;
+}
+
+.navItem a:hover {
+    background-color: #1781C2;
+    box-shadow: 0 0 0 1pt #E8F6FE;
+}
+
+.navActive {
+    box-shadow: 0 0 0 2pt #E8F6FE;
+    background-color: #1781C2 !important;
+}
+
+#footer_default {
+    background-color: #111A22;
+    bottom: 0;
+    border-top: #000000 4px solid;
+    width: 100%;
+    margin-top: auto;
+    text-align: center;
+    flex-direction: row;
+    display: flex;
+}
+
+#footer_default .footer_items {
+    display: inline-block;
+    padding-bottom: 10px;
+    margin: 20px 10px 10px 10px;
+    text-align: center;
+    width: 33%;
+}
+
+input[type="email"] {
+    border-radius: 5px;
+    padding: 3px 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+input[type="text"] {
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 3px 0;
+}
+
+input[type="password"] {
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 3px 0;
+}
+
+input[type="button"] {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 4px 10px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 0;
+    box-sizing: border-box;
+    background-color: #1da1f2;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #1781C2;
+    box-shadow: 0 0 0 1pt #E8F6FE;
+}
+
+#contact_email, #contact_submit {
+    width: 50%;
+    text-align: center;
+}
+
+#login_form {
+    width: 100%;
+    text-align: center;
+}
+
+#login_username, #login_password, #login_submit, #login_register {
+    width: 50%;
+}
+
+.modal {
+    background-color: #15202b !important;
+    border: 1px solid white !important;
+    text-align: center !important;
+}
+
+.button_warning {
+    background-color: red !important;
+}
+
+.button_warning:hover {
+    background-color: #cc0000 !important;
+}
+
+#content-wrap {
+}
+
+#pageContent {
+    width: 100%;
+    flex: auto;
+    overflow: auto;
+}
