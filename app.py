@@ -1,7 +1,30 @@
 from flask import Flask, render_template, request, send_from_directory
+import json
+import mariadb
 
 app = Flask(__name__, static_url_path='')
 
+
+# DB CONFIG
+db_config = {
+    'host': 'db.glacier.cx',
+    'port': 3306,
+    'user': 'neighborly',
+    'password': '',
+    'database': 'neighborly'
+}
+
+
+@app.route('/test-db')
+def test_db():
+    con = mariadb.connect(**db_config)
+    cur = con.cursor()
+    cur.execute("SELECT * FROM listings WHERE id=?", ('1',))
+    records = cur.fetchall()
+    result = 'results: '
+    for row in records:
+        result += "<br> " + row[1]
+    return result
 
 # Main pages
 @app.route('/')
