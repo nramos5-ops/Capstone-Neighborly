@@ -10,7 +10,7 @@ db_config = {
     'host': 'db.glacier.cx',
     'port': 3306,
     'user': 'neighborly',
-    'password': 'rZNNBHrbdWYaUEv',
+    'password': '',
     'database': 'neighborly'
 }
 
