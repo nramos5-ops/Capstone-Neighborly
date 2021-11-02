@@ -4,19 +4,19 @@ import mariadb
 
 app = Flask(__name__, static_url_path='')
 
-
 # DB CONFIG
 db_config = {
     'host': 'db.glacier.cx',
     'port': 3306,
     'user': 'neighborly',
-    'password': '',
+    'password': 'rZNNBHrbdWYaUEv',
     'database': 'neighborly'
 }
 
 
+# Load tool listing (single)
 @app.route('/load-listing/<db_id>')
-def test_db(db_id):
+def load_listing_single(db_id):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
     cur.execute("SELECT * FROM listings WHERE id=?", (db_id,))
@@ -25,8 +25,34 @@ def test_db(db_id):
     json_data = []
     for result in records:
         json_data.append(dict(zip(row_head, result)))
-
     return json.dumps(json_data)
+
+
+# Load tool listing (multiple)
+@app.route('/load-listing/<id_start>/<id_end>')
+def load_listing_multiple(id_start, id_end):
+    con = mariadb.connect(**db_config)
+    cur = con.cursor()
+    cur.execute("SELECT * FROM listings WHERE id>=? AND id<=?", (id_start, id_end))
+    records = cur.fetchall()
+    row_head = [x[0] for x in cur.description]
+    json_data = []
+    for result in records:
+        json_data.append(dict(zip(row_head, result)))
+    return json.dumps(json_data)
+
+
+# Get tool count
+@app.route('/load-listing/count')
+def load_listing_count():
+    con = mariadb.connect(**db_config)
+    cur = con.cursor()
+    cur.execute("SELECT COUNT(*) FROM listings")
+    records = cur.fetchall()
+    json_data = []
+    for result in records:
+        return str(result[0])
+
 
 # Main pages
 @app.route('/')
