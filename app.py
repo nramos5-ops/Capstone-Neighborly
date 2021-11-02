@@ -19,7 +19,7 @@ db_config = {
 def load_listing_single(db_id):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
-    cur.execute("SELECT listings.*, users.username FROM listings INNER JOIN users WHERE listings.id = ? AND users.id = listings.owner_id;", (db_id,))
+    cur.execute("SELECT listings.*, users.username, users.location, users.profile_picture FROM listings INNER JOIN users WHERE listings.id = ? AND users.id = listings.owner_id;", (db_id,))
     records = cur.fetchall()
     row_head = [x[0] for x in cur.description]
     json_data = []
@@ -33,7 +33,7 @@ def load_listing_single(db_id):
 def load_listing_multiple(id_start, id_end):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
-    cur.execute("SELECT listings.*, users.username FROM listings INNER JOIN users WHERE listings.id >= ? AND listings.id <= ? AND users.id = listings.owner_id;", (id_start, id_end))
+    cur.execute("SELECT listings.*, users.username, (SELECT FLOOR(AVG(rating)) FROM ratings WHERE receiving_user = users.id) As 'rating' FROM listings INNER JOIN users WHERE listings.id >= ? AND listings.id <= ? AND users.id = listings.owner_id;", (id_start, id_end))
     records = cur.fetchall()
     row_head = [x[0] for x in cur.description]
     json_data = []
