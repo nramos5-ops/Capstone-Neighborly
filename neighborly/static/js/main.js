@@ -31,15 +31,15 @@ $(document).ready(function() {
     // }
 
     //Set nav bar
-    $v("navbar").innerHTML = "<div id='navbar_logo'>\n" +
-        "<a href='index.html'><img src='images/logo_trim.png' alt='Neighborly'></a>\n" +
-        "</div>\n" +
-        "<div id='navbar_btnGrp'>\n" +
-        "<ul id='navbar_btn'>\n" +
-        "<li class='navItem'><a href='index.html' id='nav_home'>Home</a></li>\n" +
-        "<li class='navItem'><a href='rental.html' id='nav_rental'>Rental</a></li>\n" +
-        "<li class='navItem'><a href='login.html' id='nav_login'>Login</a></li>\n" +
-        "</ul>\n" +
-        "</div>\n";
+    // $v("navbar").innerHTML = "<div id='navbar_logo'>\n" +
+    //     "<a href='index.html'><img src='images/logo_trim.png' alt='Neighborly'></a>\n" +
+    //     "</div>\n" +
+    //     "<div id='navbar_btnGrp'>\n" +
+    //     "<ul id='navbar_btn'>\n" +
+    //     "<li class='navItem'><a href='index.html' id='nav_home'>Home</a></li>\n" +
+    //     "<li class='navItem'><a href='rental.html' id='nav_rental'>Rental</a></li>\n" +
+    //     "<li class='navItem'><a href='login.html' id='nav_login'>Login</a></li>\n" +
+    //     "</ul>\n" +
+    //     "</div>\n";
 
 });

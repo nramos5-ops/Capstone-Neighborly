@@ -1,47 +1,38 @@
-<!DOCTYPE html>
+{%extend "index.html" %} 
+
+<!-- <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle">WatchTogether</title>
 </head>
-<body>
+<body> -->
 <!-- Navbar -->
-<div id="navbar">
-<!-- Load with JS in main.js -->
+<!-- <div id="logo">
+    <img src="images/logo_trim.png" alt="Neighborly">
 </div>
+<ul id="navbar">
+    <li class="navItem"><a href="index.html" id="nav_home">Home</a></li>
+    <li class="navItem"><a href="rental.html" id="nav_rental">Rental</a></li>
+    <li class="navItem"><a href="Login.html" id="nav_login">Login</a></li>
+</ul> -->
 <!-- Content -->
 <div id="pageContent">
-    <div>
-        <div id="indexCol_1">
-            
-        </div>
-        <div id="indexCol_2">
-            <h1>Welcome to Neighborly</h1>
+    {%block content%}
+    <div id="loginContent">
 
-            <p>This is the place where you come and look for the tools that 
-                you have been looking for to finish that long awaited project
-
-            </p>
-
-        </div>
-        <div id="indexCol_3">
-            <!-- <div id="indexAccordion">
-                <h3>header 1</h3>
-                <div>
-                    <p>
-                        content 1
-                    </p>
-                </div>
-                <h3>header 2</h3>
-                <div>
-                    <p>
-                        content 2
-                    </p>
-                </div>
-            </div> -->
-        </div>
+        <h1>Login</h1>
+        <div id="loginErrMsg"></div>
+        <p><label for="txtUser">Username</label><br>
+            <input type="text" placeholder="Username" id="txtUser"/></p>
+        <p><label for="txtPass">Password</label><br>
+            <input type="password" placeholder="Password" id="txtPass"/></p>
+        <p><input type="button" value="Login" id="btnLogin"/></p>
+        <p><input type="button" value="Register" id="btnRegister"/></p>
     </div>
+    {% endblock %} 
 </div>
 
 <!--End of Content -->
@@ -66,11 +57,13 @@
 
 <!-- References -->
 
-<link href="css/global.css" rel="stylesheet" />
+<link href="css/watch.css" rel="stylesheet" />
 <link href="css/index.css" rel="stylesheet" />
+<link href="css/login.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/index.js"></script>
+<script src="js/login.js"></script>
 
 <!-- jQuery Modal Plugin -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
