@@ -10,21 +10,23 @@ db_config = {
     'host': 'db.glacier.cx',
     'port': 3306,
     'user': 'neighborly',
-    'password': '',
+    'password': 'rZNNBHrbdWYaUEv',
     'database': 'neighborly'
 }
 
 
-@app.route('/test-db')
-def test_db():
+@app.route('/load-listing/<db_id>')
+def test_db(db_id):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
-    cur.execute("SELECT * FROM listings WHERE id=?", ('1',))
+    cur.execute("SELECT * FROM listings WHERE id=?", (db_id,))
     records = cur.fetchall()
-    result = 'results: '
-    for row in records:
-        result += "<br> " + row[1]
-    return result
+    row_head = [x[0] for x in cur.description]
+    json_data = []
+    for result in records:
+        json_data.append(dict(zip(row_head, result)))
+
+    return json.dumps(json_data)
 
 # Main pages
 @app.route('/')
