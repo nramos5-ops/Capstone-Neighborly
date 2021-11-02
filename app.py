@@ -53,7 +53,6 @@ def load_listing_count():
     cur = con.cursor()
     cur.execute("SELECT COUNT(*) FROM listings")
     records = cur.fetchall()
-    json_data = []
     for result in records:
         return str(result[0])
 
@@ -94,6 +93,34 @@ def logout():
 @app.route('/register')
 def register():
     return render_template('register.html')
+
+
+# register account
+@app.route('/register/auth', methods=['GET', 'POST'])
+def register_auth():
+    #get form info
+    oUser = request.form.get('username')
+    oPass = request.form.get('password')
+    oEmail = request.form.get('email')
+    con = mariadb.connect(**db_config)
+    cur = con.cursor()
+    cur.execute("SELECT COUNT(*) FROM users WHERE username=?", (oUser,))
+    records = cur.fetchall()
+    for result in records:
+        print("searching for " + oUser)
+        print("result: " + str(result[0]))
+        if result[0] == 0:
+            print(oUser + " not found")
+            try:
+                cur.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", (oUser, oPass, oEmail))
+                con.commit()
+                con.close()
+            except mariadb.Error as e:
+                print(f"Error: {e}")
+            return 'true'
+        else:
+            return 'false'
+
 
 
 @app.route('/rental')

@@ -3,7 +3,23 @@ $(document).ready(function() {
 
     $v("btnRegister").onclick = function(event) {
         event.preventDefault();
-        window.location.href = "register.html?username=" + txtUser.value + "&password=" + txtPass.value + "&email=" + txtEmail.value;
+        let registerData = {
+            //CryptoJS.MD5(password).toString();
+            username: $v("txtUser").value,
+            password: CryptoJS.MD5($v("txtPass").value).toString(),
+            email: $v("txtEmail").value
+        }
+        $.post('/register/auth',registerData, function(data, status) {
+            console.log(data);
+            if(data === 'true') {
+                document.cookie = "username=" + loginData.username;
+                document.cookie = "password=" + loginData.password;
+                window.location.replace("/");
+            } else if (data === 'false') {
+                alert('Enter valid info');
+            }
+
+        });
     }
 
 });
