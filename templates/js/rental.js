@@ -30,9 +30,7 @@ function addListings(data) {
 }
 
 $(document).ready(function() {
-    let result;
-    getListingSingle("1", function(data) {
-        result = data;
+    $.getJSON('/load-listing/count', function(data) {
+        getListingMultiple(1, data);
     });
-    console.log(result);
 });
