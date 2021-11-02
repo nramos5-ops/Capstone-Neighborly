@@ -6,6 +6,7 @@ function getListingCount() {
 
 function getListingMultiple(id_start, id_end) {
     $.getJSON('/load-listing/' + id_start + '/' + id_end, function(data) {
+        console.log(data);
         addListings(data);
     });
 }
@@ -23,6 +24,7 @@ function addListings(data) {
         $v("pageContent").innerHTML += "<div id='rental_" + json.id + "' class='rentalMainBox'>" +
             "<div class='rentalBoxImg'><img class='rentalBoxImg' src='" + json.image + "'/></div>" +
             "<div class='rentalBoxText'>" +
+            json.username + "\'s Item<br>" +
             "Desc: " + json.description + "<br>" +
             "</div>" +
             "</div>";
