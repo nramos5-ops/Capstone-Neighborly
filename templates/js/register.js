@@ -12,8 +12,8 @@ $(document).ready(function() {
         $.post('/register/auth',registerData, function(data, status) {
             console.log(data);
             if(data === 'true') {
-                document.cookie = "username=" + loginData.username;
-                document.cookie = "password=" + loginData.password;
+                document.cookie = "username=" + registerData.username;
+                document.cookie = "password=" + registerData.password;
                 window.location.replace("/");
             } else if (data === 'false') {
                 alert('Enter valid info');

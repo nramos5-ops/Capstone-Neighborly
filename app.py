@@ -25,6 +25,7 @@ def load_listing_single(db_id):
     records = cur.fetchall()
     row_head = [x[0] for x in cur.description]
     json_data = []
+    con.close()
     for result in records:
         json_data.append(dict(zip(row_head, result)))
     return json.dumps(json_data)
@@ -41,6 +42,7 @@ def load_listing_multiple(id_start, id_end):
     records = cur.fetchall()
     row_head = [x[0] for x in cur.description]
     json_data = []
+    con.close()
     for result in records:
         json_data.append(dict(zip(row_head, result)))
     return json.dumps(json_data)
@@ -53,6 +55,7 @@ def load_listing_count():
     cur = con.cursor()
     cur.execute("SELECT COUNT(*) FROM listings")
     records = cur.fetchall()
+    con.close()
     for result in records:
         return str(result[0])
 
@@ -78,6 +81,7 @@ def login_auth():
     cur = con.cursor()
     cur.execute("SELECT COUNT(*) FROM users WHERE username = ? AND password = ?", (oUser, oPass,))
     records = cur.fetchall()
+    con.close()
     result = "";
     for result in records:
         if result[0] == 1:
