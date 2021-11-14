@@ -8,26 +8,31 @@
 }
 
 #profileTitle {
-    background-color: green;
     display: flex;
     justify-content: center;
     width: 100%;
     font-size: calc(20px + 1vw);
+    margin-top: 5px;
+    font-weight: bold;
+    border-bottom: black solid;
 }
 
 #profilePicture {
-    background-color: purple;
     display: flex;
-    margin: 20px 0px;
+    max-height: 30%;
+    justify-content: center;
+    margin-bottom: 5px;
 }
 
 #profileDescription {
-    background-color: lightblue;
+    margin-top: 5px;
     font-size: calc(12px + 0.5vw);
 }
 
 #userImage {
     max-width: 100%;
+    vertical-align: middle;
+    border-radius: 50% 50%;
 }
 
 #profileRight {
@@ -40,7 +45,6 @@
 }
 
 #profileListings {
-    background-color: orange;
     display: flex;
     width: 100%;
     height: 30%;
@@ -48,7 +52,6 @@
 }
 
 #profileListingsPageLeft {
-    background-color:lime;
     order: 1;
     float: left;
     display: flex;
@@ -58,15 +61,25 @@
 }
 
 #profileListingsContent {
-    background-color:hotpink;
     order: 2;
     display: flex;
+    justify-content: flex-start;
     justify-content: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+    overflow-y: hidden;
     flex-grow: 1;
 }
 
+.profileListingItem {
+    background-color: #cc0000;
+    display: flex;
+    height: 100%;
+    width: 200px;
+    margin: 0px 10px;
+}
+
 #profileListingsPageRight {
-    background-color:lime;
     order: 3;
     float: left;
     display: flex;
