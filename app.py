@@ -14,27 +14,33 @@ db_config = {
 }
 
 
-# Load tool listing (single)
+def db_query_format(db_cursor):
+    # Function to take DB query and get results, function eliminates duplicate code when possible
+    records = db_cursor.fetchall()
+    row_head = [x[0] for x in db_cursor.description]
+    json_data = []
+    for result in records:
+        json_data.append(dict(zip(row_head, result)))
+    return json.dumps(json_data)
+
+
 @app.route('/load-listing/<db_id>')
 def load_listing_single(db_id):
+    # Function to get a single tool listing and the details for it
     con = mariadb.connect(**db_config)
     cur = con.cursor()
     cur.execute(
         "SELECT listings.*, users.username, users.location, users.profile_picture FROM listings "
         "INNER JOIN users WHERE listings.id = ? AND users.id = listings.owner_id;",
         (db_id,))
-    records = cur.fetchall()
-    row_head = [x[0] for x in cur.description]
-    json_data = []
+    json_data = db_query_format(cur)
     con.close()
-    for result in records:
-        json_data.append(dict(zip(row_head, result)))
-    return json.dumps(json_data)
+    return json_data
 
 
-# Load tool listing (multiple)
 @app.route('/load-listing/<id_start>/<id_end>')
 def load_listing_multiple(id_start, id_end):
+    # Load tool listing (multiple)
     con = mariadb.connect(**db_config)
     cur = con.cursor()
     cur.execute(
@@ -42,13 +48,9 @@ def load_listing_multiple(id_start, id_end):
         "WHERE receiving_user = users.id) As 'rating' FROM listings INNER JOIN users "
         "WHERE listings.id >= ? AND listings.id <= ? AND users.id = listings.owner_id;",
         (id_start, id_end))
-    records = cur.fetchall()
-    row_head = [x[0] for x in cur.description]
-    json_data = []
+    json_data = db_query_format(cur)
     con.close()
-    for result in records:
-        json_data.append(dict(zip(row_head, result)))
-    return json.dumps(json_data)
+    return json_data
 
 
 # Get tool count
@@ -78,8 +80,18 @@ def login():
 # Profile page
 @app.route('/profile/<profile_id>')
 def profile(profile_id):
-    print(profile_id)
-    return profile_id
+    return render_template("profile.html")
+
+
+# profile api request
+@app.route('/api/profile/<profile_id>', methods=['GET', 'POST'])
+def api_profile(profile_id):
+    con = mariadb.connect(**db_config)
+    cur = con.cursor()
+    cur.execute("SELECT username, profile_picture, location FROM users WHERE id=?", (profile_id,))
+    json_data = db_query_format(cur)
+    con.close()
+    return json_data
 
 
 # login auth

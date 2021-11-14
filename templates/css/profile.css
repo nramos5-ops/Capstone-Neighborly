@@ -1,0 +1,172 @@
+#profileLeft {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    float: left;
+    width: 30%;
+    margin: 10px auto;
+}
+
+#profileTitle {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: calc(20px + 1vw);
+    margin-top: 5px;
+    font-weight: bold;
+    border-bottom: black solid;
+}
+
+#profilePicture {
+    display: flex;
+    max-height: 30%;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+#profileDescription {
+    margin-top: 5px;
+    font-size: calc(12px + 0.5vw);
+}
+
+#userImage {
+    max-width: 100%;
+    vertical-align: middle;
+    border-radius: 50% 50%;
+}
+
+#profileRight {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    float: right;
+    width: 65%;
+    margin: 10px auto;
+}
+
+#profileListings {
+    display: flex;
+    width: 100%;
+    height: 30%;
+    margin-bottom: 5px;
+}
+
+#profileListingsPageLeft {
+    order: 1;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4vw;
+}
+
+#profileListingsContent {
+    order: 2;
+    display: flex;
+    justify-content: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+    overflow-y: hidden;
+    flex-grow: 1;
+}
+
+.profileListingItem {
+    background-color: #cc0000;
+    display: flex;
+    height: 100%;
+    width: 200px;
+    margin: 0px 10px;
+}
+
+#profileListingsPageRight {
+    order: 3;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4vw;
+}
+
+#profileListingsReviews {
+    background-color: yellow;
+    margin-top: 5px;
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+}
+
+#pageContent {
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+ div.arrow {
+	 width: 3.5vmin;
+	 height: 3.5vmin;
+	 box-sizing: border-box;
+	 position: sticky;
+}
+ div.arrow::before {
+	 content: '';
+	 width: 100%;
+	 height: 100%;
+	 border-width: 0.8vmin 0.8vmin 0 0;
+	 border-style: solid;
+	 border-color: #fafafa;
+	 transition: 0.2s ease;
+	 display: block;
+	 transform-origin: 100% 0;
+}
+ div.arrow:after {
+	 content: '';
+	 float: left;
+	 position: relative;
+	 top: -100%;
+	 width: 100%;
+	 height: 100%;
+	 border-width: 0 0.8vmin 0 0;
+	 border-style: solid;
+	 border-color: #fafafa;
+	 transform-origin: 100% 0;
+	 transition: 0.2s ease;
+}
+ div.arrow:hover::after {
+	 transform: rotate(45deg);
+	 border-color: orange;
+	 height: 120%;
+}
+ div.arrow:hover::before {
+     border-color: orange;
+     transform: scale(0.8);
+ }
+
+ #left_arrow {
+     transform: scale(1, 1) rotate(-135deg);
+ }
+
+ #left_arrow_box {
+     display: flex;
+     width: 100%;
+     height: 100%;
+     align-items: center;
+     justify-content: center;
+     flex-grow: 1;
+     margin-left: 1vw;
+ }
+
+ #right_arrow {
+     transform: scale(-1, 1) rotate(-135deg);
+ }
+
+ #right_arrow_box {
+     display: flex;
+     width: 100%;
+     height: 100%;
+     align-items: center;
+     justify-content: center;
+     flex-grow: 1;
+     margin-right: 1vw;
+ }
