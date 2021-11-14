@@ -34,8 +34,8 @@ function addListings(data) {
 
         $v("pageContent").innerHTML += "<div id='rental_" + json.id + "' class='rentalMainBox'>" +
             "<a href='/rental/" + json.id + "'><div class='rentalBoxImg'><img class='rentalBoxImg' src='" + json.image + "'/></div></a>" +
-            "<div class='rentalBoxText'>" +
-            json.username + "(" + getStars(json.rating) + ")<br>" +
+            "<div class='rentalBoxText'><a href='profile/" + json.owner_id + "'>" +
+            json.username + "</a>(" + getStars(json.rating) + ")<br>" +
             "Desc: " + json.description + "<br>" +
             "</div>" +
             "</div>";
