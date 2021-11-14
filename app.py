@@ -20,7 +20,8 @@ def load_listing_single(db_id):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
     cur.execute(
-        "SELECT listings.*, users.username, users.location, users.profile_picture FROM listings INNER JOIN users WHERE listings.id = ? AND users.id = listings.owner_id;",
+        "SELECT listings.*, users.username, users.location, users.profile_picture FROM listings "
+        "INNER JOIN users WHERE listings.id = ? AND users.id = listings.owner_id;",
         (db_id,))
     records = cur.fetchall()
     row_head = [x[0] for x in cur.description]
@@ -37,7 +38,9 @@ def load_listing_multiple(id_start, id_end):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
     cur.execute(
-        "SELECT listings.*, users.username, (SELECT FLOOR(AVG(rating)) FROM ratings WHERE receiving_user = users.id) As 'rating' FROM listings INNER JOIN users WHERE listings.id >= ? AND listings.id <= ? AND users.id = listings.owner_id;",
+        "SELECT listings.*, users.username, (SELECT FLOOR(AVG(rating)) FROM ratings "
+        "WHERE receiving_user = users.id) As 'rating' FROM listings INNER JOIN users "
+        "WHERE listings.id >= ? AND listings.id <= ? AND users.id = listings.owner_id;",
         (id_start, id_end))
     records = cur.fetchall()
     row_head = [x[0] for x in cur.description]
@@ -60,29 +63,36 @@ def load_listing_count():
         return str(result[0])
 
 
-# Main pages
+# Main page
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
+# Login page
 @app.route('/login')
 def login():
     return render_template('login.html')
 
 
+# Profile page
+@app.route('/profile/<profile_id>')
+def profile(profile_id):
+    print(profile_id)
+    return profile_id
+
+
 # login auth
 @app.route('/login/auth', methods=['GET', 'POST'])
 def login_auth():
-    oUser = request.form.get('username')
-    oPass = request.form.get('password')
-    print('Received login request: ' + oUser + ' : ' + oPass)
+    o_user = request.form.get('username')
+    o_pass = request.form.get('password')
+    print('Received login request: ' + o_user + ' : ' + o_pass)
     con = mariadb.connect(**db_config)
     cur = con.cursor()
-    cur.execute("SELECT COUNT(*) FROM users WHERE username = ? AND password = ?", (oUser, oPass,))
+    cur.execute("SELECT COUNT(*) FROM users WHERE username = ? AND password = ?", (o_user, o_pass,))
     records = cur.fetchall()
     con.close()
-    result = "";
     for result in records:
         if result[0] == 1:
             return 'true'
@@ -94,6 +104,7 @@ def login_auth():
 def logout():
     return render_template('logout.html')
 
+
 @app.route('/register')
 def register():
     return render_template('register.html')
@@ -102,21 +113,21 @@ def register():
 # register account
 @app.route('/register/auth', methods=['GET', 'POST'])
 def register_auth():
-    #get form info
-    oUser = request.form.get('username')
-    oPass = request.form.get('password')
-    oEmail = request.form.get('email')
+    # get form info
+    o_user = request.form.get('username')
+    o_pass = request.form.get('password')
+    o_email = request.form.get('email')
     con = mariadb.connect(**db_config)
     cur = con.cursor()
-    cur.execute("SELECT COUNT(*) FROM users WHERE username=?", (oUser,))
+    cur.execute("SELECT COUNT(*) FROM users WHERE username=?", (o_user,))
     records = cur.fetchall()
     for result in records:
-        print("searching for " + oUser)
+        print("searching for " + o_user)
         print("result: " + str(result[0]))
         if result[0] == 0:
-            print(oUser + " not found")
+            print(o_user + " not found")
             try:
-                cur.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", (oUser, oPass, oEmail))
+                cur.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", (o_user, o_pass, o_email))
                 con.commit()
                 con.close()
             except mariadb.Error as e:
@@ -124,7 +135,6 @@ def register_auth():
             return 'true'
         else:
             return 'false'
-
 
 
 @app.route('/rental')
@@ -135,7 +145,7 @@ def rental():
 # tool listing specific page
 @app.route('/rental/<tool_id>')
 def rental_id(tool_id):
-    return tool_id;
+    return tool_id
 
 
 # css
