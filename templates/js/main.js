@@ -44,7 +44,7 @@ $(document).ready(function() {
         "</div>\n";
     } else {
         $v("navbar").innerHTML = "<div id='navbar_logo'>\n" +
-        "<a href='/'><img src='images/logo_trim.png' alt='Neighborly'></a>\n" +
+        "<a href='/'><img src='/images/logo_trim.png' alt='Neighborly'></a>\n" +
         "</div>\n" +
         "<div id='navbar_btnGrp'>\n" +
         "<ul id='navbar_btn'>\n" +
