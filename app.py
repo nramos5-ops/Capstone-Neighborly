@@ -88,7 +88,7 @@ def profile(profile_id):
 def api_profile(profile_id):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
-    cur.execute("SELECT username, profile_picture, location FROM users WHERE id=?", (profile_id,))
+    cur.execute("SELECT username, profile_picture As 'avatar', location, description FROM users WHERE id=?", (profile_id,))
     json_data = db_query_format(cur)
     con.close()
     return json_data

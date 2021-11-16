@@ -1,4 +1,5 @@
 let $v = function (id) { return document.getElementById(id); };
+let $preload = function (url) { new Image().src = url; }
 let username = '';
 let password = '';
 
