@@ -38,16 +38,16 @@ function displayProfile(status) {
     }
 }
 
-function addReview(reviewInfo) {
+function addReview(id, reviewerPhoto, reviewerName, reviewText) {
+    reviewerPhoto = "<img class='reviewerImg' id='reviewImage_" + id + "' src='" + reviewerPhoto + "'/>";
     $v("profileListingsReviews").innerHTML += "<div class='profileReviewBox'>" +
         "<div class='profileReviewerBox'>" +
-        "<div class='profileReviewerPhoto'>" +
+        "<div class='profileReviewerPhoto'>" + reviewerPhoto +
         "" +
         "</div>" +
-        "<div class='profileReviewerName'>" +
-        "</div>" +
-        "<div class='profileReviewText'>" +
-        "</div>" +
+        "<div class='profileReviewerName'>" + reviewerName +
+        "</div></div>" +
+        "<div class='profileReviewText'>" + reviewText +
         "</div>" +
         "</div>";
 }
@@ -63,7 +63,7 @@ $(document).ready(function() {
             updateProfilePicture(json_data.avatar);
         });
     for (let i = 0; i < 20; i++) {
-            addReview(i);
+            addReview(i, "/images/profile/default.png", "Test", "Test review");
         }
     displayProfile(true);
 });

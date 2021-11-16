@@ -102,21 +102,42 @@
 
 .profileReviewBox {
     background-color: lime;
-    min-width: 80%;
+    display: flex;
+    flex-direction: row;
+    min-width: 90%;
     height: 100px;
     margin: 5px;
 }
 
-.profileReviewerPhoto {
+.profileReviewerBox {
+    background-color: blue;
+    order: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
+.profileReviewerPhoto {
+    background-color: deeppink;
+    max-height: calc(100% - 20px);
+}
+
+.reviewerImg {
+    height: 100%;
+    justify-content: center;
+    border-radius: 50% 50%;
 }
 
 .profileReviewerName {
-
+    background-color: green;
+    height: calc(20px);
 }
 
 .profileReviewText {
-
+    background-color: red;
+    height: 100%;
+    order: 2;
+    width: 85%;
 }
 
 #pageContent {
