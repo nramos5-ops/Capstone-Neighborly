@@ -104,7 +104,8 @@
     background-color: lime;
     display: flex;
     flex-direction: row;
-    min-width: 90%;
+    align-items: flex-start;
+    width: 90%;
     height: 100px;
     margin: 5px;
 }
@@ -120,24 +121,28 @@
 .profileReviewerPhoto {
     background-color: deeppink;
     max-height: calc(100% - 20px);
+    display: flex;
+    order: 1;
 }
 
 .reviewerImg {
     height: 100%;
+    display: flex;
     justify-content: center;
-    border-radius: 50% 50%;
+    border-radius: 0% 0%;
 }
 
 .profileReviewerName {
     background-color: green;
     height: calc(20px);
+    display: flex;
+    order: 2;
 }
 
 .profileReviewText {
     background-color: red;
     height: 100%;
     order: 2;
-    width: 85%;
 }
 
 #pageContent {
