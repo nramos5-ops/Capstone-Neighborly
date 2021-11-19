@@ -63,7 +63,6 @@
 #profileListingsContent {
     order: 2;
     display: flex;
-    justify-content: flex-start;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -71,7 +70,6 @@
 }
 
 .profileListingItem {
-    background-color: #cc0000;
     display: flex;
     justify-content: center;
     height: 150px;
@@ -92,7 +90,6 @@
     margin-top: 5px;
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
@@ -112,7 +109,7 @@
     order: 1;
     height: 100%;
     display: flex;
-    width: 125px;
+    width: 130px;
     flex-direction: column;
 }
 
@@ -122,6 +119,7 @@
 
 .reviewerImg {
     height: 100%;
+    max-width: 130px;
     border-radius: 50% 50%;
 }
 

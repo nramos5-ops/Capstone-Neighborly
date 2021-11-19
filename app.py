@@ -109,7 +109,6 @@ def api_profile_reviews(username):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
     profile_id = db_get_id_from_user(username).split(":")[1].split("}")[0]
-    print(profile_id)
     cur.execute("Select ratings.giving_user, ratings.rating, ratings.message, ratings.review_date, users.profile_picture FROM ratings INNER JOIN users WHERE ratings.receiving_user=? AND users.id = ratings.giving_user", (profile_id,))
     json_data = db_query_format(cur)
     con.close()
@@ -182,7 +181,7 @@ def rental():
 # tool listing specific page
 @app.route('/rental/<tool_id>')
 def rental_id(tool_id):
-    return tool_id
+    return "TODO: Tool ID: " + tool_id
 
 
 # css
