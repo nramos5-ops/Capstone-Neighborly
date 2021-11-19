@@ -104,7 +104,7 @@
     background-color: lime;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     width: 90%;
     height: 100px;
     margin: 5px;
@@ -115,34 +115,33 @@
     order: 1;
     height: 100%;
     display: flex;
+    width: 125px;
     flex-direction: column;
 }
 
 .profileReviewerPhoto {
     background-color: deeppink;
     max-height: calc(100% - 20px);
-    display: flex;
-    order: 1;
 }
 
 .reviewerImg {
     height: 100%;
-    display: flex;
-    justify-content: center;
-    border-radius: 0% 0%;
+    border-radius: 50% 50%;
 }
 
-.profileReviewerName {
+.profileReviewRating {
     background-color: green;
+    text-align: center;
     height: calc(20px);
-    display: flex;
-    order: 2;
 }
 
 .profileReviewText {
     background-color: red;
     height: 100%;
     order: 2;
+    display: flex;
+    flex-grow: 1;
+    margin: auto;
 }
 
 #pageContent {

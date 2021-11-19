@@ -45,7 +45,7 @@ function addReview(id, reviewerPhoto, reviewerName, reviewText) {
         "<div class='profileReviewerPhoto'>" + reviewerPhoto +
         "" +
         "</div>" +
-        "<div class='profileReviewerName'>" + reviewerName +
+        "<div class='profileReviewRating'>" + reviewerName +
         "</div></div>" +
         "<div class='profileReviewText'>" + reviewText +
         "</div>" +
