@@ -28,6 +28,17 @@ function updateProfileTitle(name) {
     $v("profileTitle").innerHTML = "<b>" + name + "</b>";
 }
 
+function getStars(count) {
+    let result = '';
+    for (let i = 0; i < count; i++) {
+        result += "<span class='fa fa-star checked'></span>"
+    }
+    for (let i = count; i < 5; i++) {
+        result += "<span class='fa fa-star'></span>"
+    }
+    return result;
+}
+
 function displayProfile(status) {
     if (status) {
         $v("profileLeft").style.display = "flex";

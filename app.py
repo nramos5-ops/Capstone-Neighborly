@@ -84,11 +84,11 @@ def profile(profile_id):
 
 
 # profile api request
-@app.route('/api/profile/<profile_id>', methods=['GET', 'POST'])
-def api_profile(profile_id):
+@app.route('/api/profile/<username>', methods=['GET', 'POST'])
+def api_profile(username):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
-    cur.execute("SELECT username, profile_picture As 'avatar', location, description FROM users WHERE id=?", (profile_id,))
+    cur.execute("SELECT username, profile_picture As 'avatar', location, description FROM users WHERE username=?", (username,))
     json_data = db_query_format(cur)
     con.close()
     return json_data
