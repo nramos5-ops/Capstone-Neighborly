@@ -120,7 +120,10 @@ def logout():
 @app.route('/register')
 def register():
     return render_template('register.html')
-
+    
+@app.route('/aboutus')
+def aboutus():
+    return render_template('AboutUs.html')
 
 # register account
 @app.route('/register/auth', methods=['GET', 'POST'])

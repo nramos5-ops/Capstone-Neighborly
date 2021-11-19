@@ -40,6 +40,8 @@ $(document).ready(function() {
         "<ul id='navbar_btn'>\n" +
         "<li class='navItem'><a href='/' id='nav_home'>Home</a></li>\n" +
         "<li class='navItem'><a href='/rental' id='nav_rental'>Rental</a></li>\n" +
+        "<li class='navItem'><a href='/profile' id='nav_profile'>Profile</a></li>\n" +
+        "<li class='navItem'><a href='/aboutus' id='nav_aboutus='>About Us</a></li>\n" +
         "<li class='navItem'><a href='/logout' id='nav_logout'>Logout</a></li>\n" +
         "</ul>\n" +
         "</div>\n";
@@ -51,6 +53,7 @@ $(document).ready(function() {
         "<ul id='navbar_btn'>\n" +
         "<li class='navItem'><a href='/' id='nav_home'>Home</a></li>\n" +
         "<li class='navItem'><a href='/rental' id='nav_rental'>Rental</a></li>\n" +
+        "<li class='navItem'><a href='/aboutus' id='nav_aboutus='>About Us</a></li>\n" +
         "<li class='navItem'><a href='/login' id='nav_login='>Login</a></li>\n" +
         "</ul>\n" +
         "</div>\n";
