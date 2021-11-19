@@ -28,3 +28,16 @@
     text-align: center;
     height: 100px;
 }
+
+div.text-box {
+    display: inline-block;
+    width: 100%;
+    max-width: 340px;
+    text-align: justify;
+    margin: 20px;
+}
+
+#rentalTitle {
+    text-align: center;
+   
+}
