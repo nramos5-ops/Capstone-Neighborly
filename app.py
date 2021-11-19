@@ -21,7 +21,16 @@ def db_query_format(db_cursor):
     json_data = []
     for result in records:
         json_data.append(dict(zip(row_head, result)))
-    return json.dumps(json_data)
+    return json.dumps(json_data, indent=4, sort_keys=True, default=str)
+
+
+def db_get_id_from_user(username):
+    con = mariadb.connect(**db_config)
+    cur = con.cursor()
+    cur.execute("Select id FROM users WHERE username=?", (username,))
+    json_data = db_query_format(cur)
+    con.close()
+    return json_data
 
 
 @app.route('/load-listing/<db_id>')
@@ -95,11 +104,13 @@ def api_profile(username):
 
 
 # profile api to get reviews
-@app.route('/api/profile/reviews/<profile_id>')
-def api_profile_reviews(profile_id):
+@app.route('/api/profile/reviews/<username>')
+def api_profile_reviews(username):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
-    cur.execute("Select * FROM ratings WHERE receiving_user=?", (profile_id,))
+    profile_id = db_get_id_from_user(username).split(":")[1].split("}")[0]
+    print(profile_id)
+    cur.execute("Select ratings.giving_user, ratings.rating, ratings.message, ratings.review_date, users.profile_picture FROM ratings INNER JOIN users WHERE ratings.receiving_user=? AND users.id = ratings.giving_user", (profile_id,))
     json_data = db_query_format(cur)
     con.close()
     return json_data
