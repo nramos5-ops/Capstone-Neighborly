@@ -56,7 +56,7 @@ function addReview(id, reviewerPhoto, reviewerName, reviewText) {
         "<div class='profileReviewerPhoto'>" + reviewerPhoto +
         "" +
         "</div>" +
-        "<div class='profileReviewRating'>" + reviewerName +
+        "<div class='profileReviewRating'>" + getStars(4) +
         "</div></div>" +
         "<div class='profileReviewText'>" + reviewText +
         "</div>" +
@@ -73,8 +73,12 @@ $(document).ready(function() {
             updateProfileLocation(json_data.location);
             updateProfilePicture(json_data.avatar);
         });
-    for (let i = 0; i < 20; i++) {
+    $.getJSON('/api/profile/reviews/' + getProfileID(), function(data) {
+        for (let i = 0; i < data.length; i++) {
+            let json = data[i]
+            //addReview(i, "/images/profile/default.png", "Test", "Test review");
             addReview(i, "/images/profile/default.png", "Test", "Test review");
         }
+    });
     displayProfile(true);
 });

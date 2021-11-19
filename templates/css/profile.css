@@ -89,7 +89,6 @@
 }
 
 #profileListingsReviews {
-    background-color: yellow;
     margin-top: 5px;
     display: flex;
     flex-direction: row;
@@ -101,7 +100,6 @@
 }
 
 .profileReviewBox {
-    background-color: lime;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -111,7 +109,6 @@
 }
 
 .profileReviewerBox {
-    background-color: blue;
     order: 1;
     height: 100%;
     display: flex;
@@ -120,7 +117,6 @@
 }
 
 .profileReviewerPhoto {
-    background-color: deeppink;
     max-height: calc(100% - 20px);
 }
 
@@ -130,18 +126,19 @@
 }
 
 .profileReviewRating {
-    background-color: green;
     text-align: center;
     height: calc(20px);
 }
 
 .profileReviewText {
-    background-color: red;
     height: 100%;
     order: 2;
     display: flex;
+    top: -50%;
+    overflow: hidden;
     flex-grow: 1;
     margin: auto;
+    font-size: 20px;
 }
 
 #pageContent {

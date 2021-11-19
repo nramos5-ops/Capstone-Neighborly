@@ -94,6 +94,17 @@ def api_profile(username):
     return json_data
 
 
+# profile api to get reviews
+@app.route('/api/profile/reviews/<profile_id>')
+def api_profile_reviews(profile_id):
+    con = mariadb.connect(**db_config)
+    cur = con.cursor()
+    cur.execute("Select * FROM ratings WHERE receiving_user=?", (profile_id,))
+    json_data = db_query_format(cur)
+    con.close()
+    return json_data
+
+
 # login auth
 @app.route('/login/auth', methods=['GET', 'POST'])
 def login_auth():
