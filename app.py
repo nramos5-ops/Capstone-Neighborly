@@ -115,6 +115,20 @@ def api_profile_reviews(username):
     return json_data
 
 
+# profile api to get user listings
+@app.route('/api/profile/listings/<username>')
+def api_profile_listings(username):
+    con = mariadb.connect(**db_config)
+    cur = con.cursor()
+    profile_id = db_get_id_from_user(username).split(":")[1].split("}")[0]
+    cur.execute(
+        "Select listings.* FROM listings INNER JOIN users WHERE listings.owner_id=? AND users.id = listings.owner_id",
+        (profile_id,))
+    json_data = db_query_format(cur)
+    con.close()
+    return json_data
+
+
 # login auth
 @app.route('/login/auth', methods=['GET', 'POST'])
 def login_auth():
