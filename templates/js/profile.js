@@ -86,6 +86,7 @@ $(document).ready(function() {
     });
 
     $.getJSON('/api/profile/listings/' + getProfileID(), function(data) {
+        clearProfileListing();
         for (let i = 0; i < data.length; i++) {
             let json = data[i];
             updateProfileListings(json.id, json.image);
