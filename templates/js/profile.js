@@ -12,12 +12,12 @@ function updateProfileDescription(desc) {
     $v("profileDescription").innerHTML = desc;
 }
 
-function updateProfileListings() {
-
+function updateProfileListings(id, image) {
+    $v("profileListingsContent").innerHTML += "<div class='profileListingItem'><img src='" + image + "'/></div>";
 }
 
-function updateProfileReviews() {
-
+function clearProfileListing() {
+    $v("profileListingsContent").innerHTML = "";
 }
 
 function updateProfileLocation(loc) {
@@ -65,6 +65,8 @@ function addReview(id, reviewerPhoto, reviewRating, reviewText) {
 
 $(document).ready(function() {
     displayProfile(false);
+
+    //get profile data (name, desc, etc.)
     $.getJSON('/api/profile/' + getProfileID(), function(data) {
             let json_data = data[0];
             console.log(json_data);
@@ -73,11 +75,21 @@ $(document).ready(function() {
             updateProfileLocation(json_data.location);
             updateProfilePicture(json_data.avatar);
         });
+
+    //Get profile reviews for a user
     $.getJSON('/api/profile/reviews/' + getProfileID(), function(data) {
         for (let i = 0; i < data.length; i++) {
             let json = data[i]
             //addReview(i, "/images/profile/default.png", "Test", "Test review");
             addReview(i, json.profile_picture, json.rating, json.message);
+        }
+    });
+
+    $.getJSON('/api/profile/listings/' + getProfileID(), function(data) {
+        clearProfileListing();
+        for (let i = 0; i < data.length; i++) {
+            let json = data[i];
+            updateProfileListings(json.id, json.image);
         }
     });
     displayProfile(true);
