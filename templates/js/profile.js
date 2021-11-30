@@ -63,17 +63,24 @@ function addReview(id, reviewerPhoto, reviewRating, reviewText) {
         "</div>";
 }
 
+function invalidProfile() {
+    $v("pageContent").innerHTML = "Invalid profile";
+}
+
 $(document).ready(function() {
     displayProfile(false);
 
     //get profile data (name, desc, etc.)
     $.getJSON('/api/profile/' + getProfileID(), function(data) {
-            let json_data = data[0];
-            console.log(json_data);
-            updateProfileTitle(json_data.username);
-            updateProfileDescription(json_data.description);
-            updateProfileLocation(json_data.location);
-            updateProfilePicture(json_data.avatar);
+            if (data.length === 0) {
+                invalidProfile();
+            } else {
+                let json_data = data[0];
+                updateProfileTitle(json_data.username);
+                updateProfileDescription(json_data.description);
+                updateProfileLocation(json_data.location);
+                updateProfilePicture(json_data.avatar);
+            }
         });
 
     //Get profile reviews for a user

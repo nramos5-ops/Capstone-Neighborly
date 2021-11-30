@@ -97,7 +97,8 @@ def profile(profile_id):
 def api_profile(username):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
-    cur.execute("SELECT username, profile_picture As 'avatar', location, description FROM users WHERE username=?", (username,))
+    cur.execute("SELECT username, profile_picture As 'avatar', "
+                "location, description FROM users WHERE username=?", (username,))
     json_data = db_query_format(cur)
     con.close()
     return json_data
@@ -109,7 +110,9 @@ def api_profile_reviews(username):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
     profile_id = db_get_id_from_user(username).split(":")[1].split("}")[0]
-    cur.execute("Select ratings.giving_user, ratings.rating, ratings.message, ratings.review_date, users.profile_picture FROM ratings INNER JOIN users WHERE ratings.receiving_user=? AND users.id = ratings.giving_user", (profile_id,))
+    cur.execute("Select ratings.giving_user, ratings.rating, ratings.message, "
+                "ratings.review_date, users.profile_picture FROM ratings INNER JOIN "
+                "users WHERE ratings.receiving_user=? AND users.id = ratings.giving_user", (profile_id,))
     json_data = db_query_format(cur)
     con.close()
     return json_data
@@ -155,10 +158,12 @@ def logout():
 @app.route('/register')
 def register():
     return render_template('register.html')
-    
+
+
 @app.route('/aboutus')
 def aboutus():
     return render_template('AboutUs.html')
+
 
 # register account
 @app.route('/register/auth', methods=['GET', 'POST'])
@@ -187,6 +192,7 @@ def register_auth():
             return 'false'
 
 
+# Rental page listing all tools
 @app.route('/rental')
 def rental():
     return render_template('rental.html')
@@ -195,7 +201,7 @@ def rental():
 # tool listing specific page
 @app.route('/rental/<tool_id>')
 def rental_id(tool_id):
-    return "TODO: Tool ID: " + tool_id
+    return render_template('tool.html')
 
 
 # css
