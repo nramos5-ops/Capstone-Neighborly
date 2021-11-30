@@ -53,7 +53,7 @@ def load_listing_multiple(id_start, id_end):
     con = mariadb.connect(**db_config)
     cur = con.cursor()
     cur.execute(
-        "SELECT listings.*, users.username, (SELECT FLOOR(AVG(rating)) FROM ratings "
+        "SELECT listings.*, users.username, users.location, (SELECT FLOOR(AVG(rating)) FROM ratings "
         "WHERE receiving_user = users.id) As 'rating' FROM listings INNER JOIN users "
         "WHERE listings.id >= ? AND listings.id <= ? AND users.id = listings.owner_id;",
         (id_start, id_end))
@@ -99,6 +99,17 @@ def api_profile(username):
     cur = con.cursor()
     cur.execute("SELECT username, profile_picture As 'avatar', "
                 "location, description FROM users WHERE username=?", (username,))
+    json_data = db_query_format(cur)
+    con.close()
+    return json_data
+
+
+#  api for getting tool information
+@app.route('/api/listing/<listing_id>', methods=['GET', 'POST'])
+def api_listing(listing_id):
+    con = mariadb.connect(**db_config)
+    cur = con.cursor()
+    cur.execute("SELECT * FROM listings WHERE id=?", (listing_id,))
     json_data = db_query_format(cur)
     con.close()
     return json_data
