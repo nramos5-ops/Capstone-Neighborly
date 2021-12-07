@@ -44,6 +44,23 @@ function addListings(data) {
     }
 }
 
+function searchBar() { //Vinny can you fix this search bar for me. This is the one rental page part of the user story. 
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
 $(document).ready(function() {
     $.getJSON('/load-listing/count', function(data) {
         getListingMultiple(1, data);
