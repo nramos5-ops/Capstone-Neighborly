@@ -181,10 +181,10 @@ input[type="button"]:hover {
     grid-template-rows: 50 px 1fr 1fr 100px;
 
     gap: 10px;
-    
 
     padding: 10px;
     box-sizing: border-box;
+    
     background:
     linear-gradient(#000,#000) center/2px 100% no-repeat,
     linear-gradient(#000,#000) center/2px 100% no-repeat;
