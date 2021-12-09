@@ -38,7 +38,7 @@ function addListings(data) {
             json.title + "<br>" +
             "<a href='profile/" + json.username + "'>" +
             json.username + "</a></b>(" + getStars(json.rating) + ")<br>" +
-            json.location + "<br>" + 
+            json.location + "<br>" +
             "</div>" +
             "</div>";
     }
