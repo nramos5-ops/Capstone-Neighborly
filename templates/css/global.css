@@ -79,7 +79,6 @@ a:visited {
     text-align: center;
     flex-direction: row;
     display: flex;
-    position: absolute;
 }
 
 #footer_default .footer_items {
