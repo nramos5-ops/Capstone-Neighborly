@@ -3,10 +3,10 @@
 <!-- References -->
 
 <link href="css/global.css" rel="stylesheet" />
-<link href="css/index.css" rel="stylesheet" />
+<link href="css/aboutus.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/main.js"></script>
-<script src="js/login.js"></script>
+<script src="js/aboutus.js"></script>
 
 <!-- jQuery Modal Plugin -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -32,76 +32,94 @@
 <!-- Content -->
 <div id="pageContent">
     <div>
-        <div id="indexCol_1">
-          
-            <h1>Insurance Plans </h1> <!-- User story #5 -->
-            <p>At Neighborly we offer solutions for insurance for your tools. Using our service we allow you to 
-                either sign up using our insurance or provide you with a third party insurance company so that you can
-                be safe at mind that your tools are protected.
-            </p>
+        <div id="indexCol_1" class="contentCol">
 
-            <table>
-                <tr>
-                  <th>Coverage</th>
-                  <th>Pricing</th>
-                </tr>
-                <tr>
-                  <td>5 tools or less</td>
-                  <td>$15/month</td>
-                </tr>
-                <tr>
-                  <td>All tools</td>
-                  <td>$35/month</td>
-                </tr>
-              </table> 
-            
-            <h2>Third Party Insurance</h2> <!-- User story #16 -->
-            <p>
-                If you wish to use a different insurance company you may use 
-                which ever one of your preference. We have one that we recommend called 
-                insrueon if you are insterested click >><a href="https://www.insureon.com/small-business-insurance/contractors-tools-equipment">here</a>
-            </p>
+            <div class="contentChildBox">
+                <h1 class="contentTitle">Insurance Plans </h1> <!-- User story #5 -->
+                <div class="contentBody">
+                    <p>
+                        At Neighborly we offer solutions for insurance for your tools. Using our service we allow you to
+                        either sign up using our insurance or provide you with a third party insurance company so that you can
+                        be safe at mind that your tools are protected.
+                    </p>
 
-            <h2>Tool Repairs/Restoration</h2> <!-- User story #15 -->
-            <p>We understands tools can get worn out after 
-                using them alot so we allow our users to get 
-                the help they need. If you need a to get your
-                tools repaired you can contact <a href="http://www.latintools.us/index.html">LATIN TOOLS</a>
-            </p>
+                    <table>
+                        <tr>
+                          <th>Coverage</th>
+                          <th>Pricing</th>
+                        </tr>
+                        <tr>
+                          <td>5 tools or less</td>
+                          <td>$15/month</td>
+                        </tr>
+                        <tr>
+                          <td>All tools</td>
+                          <td>$35/month</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="contentChildBox">
+                <h1 class="contentTitle">Third Party Insurance</h1><!-- User story #16 -->
+                <p class="contentBody">
+                    If you wish to use a different insurance company you may use
+                    which ever one of your preference. We have one that we recommend called
+                    insrueon if you are insterested click >><a href="https://www.insureon.com/small-business-insurance/contractors-tools-equipment">here</a>
+                </p>
+            </div>
+
+            <div class="contentChildBox">
+                <h1 class="contentTitle">Tool Repairs/Restoration</h1> <!-- User story #15 -->
+                <p class="contentBody">We understands tools can get worn out after
+                    using them alot so we allow our users to get
+                    the help they need. If you need a to get your
+                    tools repaired you can contact <a href="http://www.latintools.us/index.html">LATIN TOOLS</a>
+                </p>
+            </div>
             
         </div>
-        <div id="indexCol_2">
-            <h1>About us</h1>
+        <div id="indexCol_2" class="contentCol">
+            <div class="contentChildBox">
+                <h1 class="contentTitle">About us</h1>
+                <div class="contentBody">
+                    <p>Neighborly is about this community and helping serve the community. What we choose to accomplish is allowing the community to work together in finishing projects that are long over due.
+                         We want to give those people a safe environment to help others and in the same process allow to make some money when their tools are not in use.
+                    </p>
+                </div>
+            </div>
 
-            <p>Neighborly is about this community and helping serve the community. What we choose to accomplish is allowing the community to work together in finishing projects that are long over due.
-                 We want to give those people a safe environment to help others and in the same process allow to make some money when their tools are not in use. 
-            </p>
-
-
-
-            <img src="images/aboutus.jpg" alt="" title="tools">
-            
-            
+            <div class="contentChildBox">
+                <div class="contentBody">
+                    <img src="images/aboutus.jpg" alt="" title="tools">
+                </div>
+            </div>
 
         </div>
-        <div id="indexCol_3">
-            <h1>Delivery/Pickup</h1> <!-- User story #10 -->
-            <p> We allow the users to discuss where they want to meet up so they can 
-                work out what is best location for them to pick up the tools. We recommend
-                that user deliver/pickup tools at public places so that it is more safer.
-            </p>
-             <h2>Shipping</h2>  <!-- User story #9 -->
-            <p> We currently do not provide a shipping but that does not stop the renter 
-                for renting their tools to someone in a different location. If users choose
-                to ship their tools know that they can do so and can use USPS, UPS or FEDEX.
-                we recommend if users choose to do this to have insurance on their tools.
-            </p>
+        <div id="indexCol_3" class="contentCol">
+            <div class="contentChildBox">
+                <h1 class="contentTitle">Delivery/Pickup</h1> <!-- User story #10 -->
+                <p class="contentBody"> We allow the users to discuss where they want to meet up so they can
+                    work out what is best location for them to pick up the tools. We recommend
+                    that user deliver/pickup tools at public places so that it is more safer.
+                </p>
+            </div>
+            <div class="contentChildBox">
+                <h1 class="contentTitle">Shipping</h1>  <!-- User story #9 -->
+                <p class="contentBody"> We currently do not provide a shipping but that does not stop the renter
+                    for renting their tools to someone in a different location. If users choose
+                    to ship their tools know that they can do so and can use USPS, UPS or FEDEX.
+                    we recommend if users choose to do this to have insurance on their tools.
+                </p>
+            </div>
 
-            <h1>Pickup hub/locker</h1> <!-- User story #11 -->
-            <p>As time goes on we plan on allowing our users to be able to drop off there tools
-                so that the renter can come and pick up the tool they rented. This will allow for 
-                easier and safe pick ups and will be at major locations. This feature will be coming soon.
-            </p>
+            <div class="contentChildBox">
+                <h1 class="contentTitle">Pickup hub/locker</h1> <!-- User story #11 -->
+                <p class="contentBody">As time goes on we plan on allowing our users to be able to drop off there tools
+                    so that the renter can come and pick up the tool they rented. This will allow for
+                    easier and safe pick ups and will be at major locations. This feature will be coming soon.
+                </p>
+            </div>
 
 
         </div>

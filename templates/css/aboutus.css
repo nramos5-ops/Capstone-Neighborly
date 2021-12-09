@@ -1,0 +1,41 @@
+#pageContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.contentCol {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contentChildBox {
+    display: flex;
+    border-radius: 1vw;
+    padding: 5px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1vw;
+}
+.contentTitle {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background: #1781C2;
+    border-radius: 1vw;
+}
+
+.contentBody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contentChildItem {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 1;
+}
