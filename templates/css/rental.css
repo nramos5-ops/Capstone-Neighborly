@@ -38,3 +38,9 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+#txtQuery {
+    margin-right: 1vw;
+    height: 20px;
+    width: 20vw;
+}
