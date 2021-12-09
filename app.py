@@ -115,6 +115,24 @@ def api_listing(listing_id):
     return json_data
 
 
+# api for searching tools
+@app.route('/api/listing/search', methods=['GET', 'POST'])
+def api_listing_search():
+    querySearch = '%' + request.form.get('query') + '%'
+    print('query: ', querySearch)
+    con = mariadb.connect(**db_config)
+    cur = con.cursor()
+    cur.execute(
+        "SELECT listings.*, users.username, users.location, (SELECT FLOOR(AVG(rating)) FROM ratings "
+        "WHERE receiving_user = users.id) As 'rating' FROM listings INNER JOIN users "
+        "WHERE listings.description LIKE ? AND users.id = listings.owner_id;",
+        (querySearch,))
+    json_data = db_query_format(cur)
+    print(json_data)
+    con.close()
+    return json_data
+
+
 # profile api to get reviews
 @app.route('/api/profile/reviews/<username>')
 def api_profile_reviews(username):
