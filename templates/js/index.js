@@ -12,3 +12,11 @@ $(document).ready(function() {
         slideMargin: 20
     });
 });
+
+function showChart(checkbox) {
+    console.log(checkbox.dataset.chartName);
+    const chartId = document.getElementById(checkbox.dataset.chartName);
+
+    chartId.classList.toggle('hide');
+    
+}

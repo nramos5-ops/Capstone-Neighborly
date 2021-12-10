@@ -56,11 +56,11 @@
 
             <div class="chartCard">
                 <div class="chartBox">
-                    <p>Brand 1:<input onclick="showChart(this)" type="checkbox" data-chart-name="myChart"></p>
-                    <p>Brand 2:<input onclick="showChart(this)" type="checkbox" data-chart-name="myChart2"></p>
-                    <p>Brand 3:<input onclick="showChart(this)" type="checkbox" data-chart-name="myChart3"></p>
-                    <p>Brand 4:<input onclick="showChart(this)" type="checkbox" data-chart-name="myChart4"></p>
-                    <p>Brand 5:<input onclick="showChart(this)" type="checkbox" data-chart-name="myChart5"></p>
+                    <p>Bosch:<input onclick="showChart(this)" type="checkbox" data-chart-name="myChart"></p>
+                    <p>Stanley Black & Decker:<input onclick="showChart(this)" type="checkbox" data-chart-name="myChart2"></p>
+                    <p>RIDGID:<input onclick="showChart(this)" type="checkbox" data-chart-name="myChart3"></p>
+                    <p>Makita:<input onclick="showChart(this)" type="checkbox" data-chart-name="myChart4"></p>
+                    <p>Craftsman:<input onclick="showChart(this)" type="checkbox" data-chart-name="myChart5"></p>
                 </div>
 
                 <div class="chartBox">
@@ -97,126 +97,187 @@
 
 <!-- script for chartjs (show/hide feature wasn't working in js file) -->
 <script>
-    // setup 
-const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    datasets: [{
-      label: 'Weekly Sales',
-      data: [18, 12, 6, 9, 12, 3, 9],
-      backgroundColor: [
-        'rgba(255, 26, 104, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(0, 0, 0, 0.2)'
-      ],
-      borderColor: [
-        'rgba(255, 26, 104, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(0, 0, 0, 1)'
-      ],
-      borderWidth: 1
-    }]
-  };
 
-  // config 
-  const config = {
-    type: 'bar',
-    data,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    // setup data
+    const data = {
+        labels: ['Orbit Sander', 'Die Grinder', 'Miler Saw'],
+        datasets: [{
+        label: '# of Votes',
+        data: [11, 12, 18],
+        backgroundColor: [
+            'rgba(255, 26, 104, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 26, 104, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)'
+        ],
+        borderWidth: 1
+        }]
+    };
+
+    const data2 = {
+        labels: ['Hammer Drill', 'Cordless Wrench', 'Saw Blade', 'Pliers'],
+        datasets: [{
+        label: '# of Votes',
+        data: [15, 10, 6, 20],
+        backgroundColor: [
+            'rgba(255, 26, 104, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 26, 104, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)'
+        ],
+        borderWidth: 1
+        }]
+    };
+
+    const data3 = {
+        labels: ['Impact Wrench', 'Circular Wrench', 'Mud Mixer'],
+        datasets: [{
+        label: '# of Votes',
+        data: [12, 13, 5],
+        backgroundColor: [
+            'rgba(255, 26, 104, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 26, 104, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)'
+        ],
+        borderWidth: 1
+        }]
+    };
+
+    const data4 = {
+        labels: ['Power Scraper', 'Power Cutter', 'Angle Grinder', 'Belt Sander', 'Polisher'],
+        datasets: [{
+        label: '# of Votes',
+        data: [5, 19, 6, 9, 7],
+        backgroundColor: [
+            'rgba(255, 26, 104, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 26, 104, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)'
+        ],
+        borderWidth: 1
+        }]
+    };
+
+    const data5 = {
+        labels: ['Wrench Set', 'Screwdriver Set'],
+        datasets: [{
+        label: '# of Votes',
+        data: [16, 18],
+        backgroundColor: [
+            'rgba(255, 26, 104, 0.2)',
+            'rgba(54, 162, 235, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 26, 104, 1)',
+            'rgba(54, 162, 235, 1)'
+        ],
+        borderWidth: 1
+        }]
+    };
+
+    // config 
+    const config = {
+        type: 'bar',
+        data,
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
         }
-      }
-    }
-  };
-
-  const config2 = {
-    type: 'bar',
-    data,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
         }
-      }
-    }
-  };
+    };
 
-  const config3 = {
-    type: 'bar',
-    data,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {}
+    };
+
+    const config3 = {
+        type: 'bar',
+        data: data3,
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
         }
-      }
-    }
-  };
-
-  const config4 = {
-    type: 'bar',
-    data,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
         }
-      }
-    }
-  };
+    };
 
-  const config5 = {
-    type: 'bar',
-    data,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    const config4 = {
+        type: 'bar',
+        data: data4,
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
         }
-      }
-    }
-  };
+        }
+    };
 
-  // render init block
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
+    const config5 = {
+        type: 'bar',
+        data: data5,
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    };
+    
+    // render init block
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
 
-  const myChart2 = new Chart(
-    document.getElementById('myChart2'),
-    config2
-  );
+    const myChart2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
 
-  const myChart3 = new Chart(
-    document.getElementById('myChart3'),
-    config3
-  );
+    const myChart3 = new Chart(
+        document.getElementById('myChart3'),
+        config3
+    );
 
-  const myChart4 = new Chart(
-    document.getElementById('myChart4'),
-    config4
-  );
+    const myChart4 = new Chart(
+        document.getElementById('myChart4'),
+        config4
+    );
 
-  const myChart5 = new Chart(
-    document.getElementById('myChart5'),
-    config5
-  );
+    const myChart5 = new Chart(
+        document.getElementById('myChart5'),
+        config5
+    );
 
-  function showChart(checkbox) {
-      console.log(checkbox.dataset.chartName);
-      const chartId = document.getElementById(checkbox.dataset.chartName);
 
-      chartId.classList.toggle('hide');
-      
-  }
 </script>
