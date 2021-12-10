@@ -58,6 +58,10 @@ div.slider {
       
   }
 
+  .chartCard p {
+      font-size: large;
+  }
+
   .hide {
       display: none !important;
   }
